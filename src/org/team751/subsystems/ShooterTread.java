@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.team751.RobotMap;
-import org.team751.sensors.ShooterPotentiometer;
 import org.team751.util.logging.LogLevel;
 import org.team751.util.logging.Logger;
 
