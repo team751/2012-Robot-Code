@@ -37,9 +37,22 @@ public class Robot2012 extends IterativeRobot {
 
     }
 
-    public void disabledContinuous() {
+	/*
+	 * Important note to everyone:
+	 * disabledContinuous(), autonomousContinuous(), and telopContinuous()
+	 * are called as quickly as possible. If no waiting happens when one
+	 * of these is called, it will result in 100% CPU usage on the cRIO.
+	 * This is not helpful. The default superclass implementations of
+	 * these functions involve pauses to keep CPU usage down.
+	 *
+	 * The autonomousContinuous function that was here didn't wait, so
+	 * it caused 100% CPU usage when the robot was disabled. That was
+	 * observed in an actual match.
+	 *
+	 * So: Don't use the continous methods unless you know what you're doing.
+	 * Use the periodic methods.
+	 */
 
-    }
     public void disabledInit() {
         Logger.getInstance().log("Robot disabled.", LogLevel.kStatus);
     }
