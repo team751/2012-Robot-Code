@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class AccessibleTimer extends Timer {
 
-	private boolean isRunning = true;
+	private boolean isRunning = false;
 
 	public synchronized void start() {
 		super.start();
