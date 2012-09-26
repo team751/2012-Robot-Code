@@ -55,8 +55,6 @@ public class ShooterWheels extends Subsystem {
 
 	public ShooterWheels(){
 
-		encoder.setPIDSourceParameter(
-				Encoder.PIDSourceParameter.kRate);//Set the encoder to send its rate instead of position as a PID parameter
 		encoder.start();
 
 		speedTimer = new Timer();
@@ -133,15 +131,12 @@ public class ShooterWheels extends Subsystem {
 				double actualRate = encoder.getRate();
 				double targetRate = targetPower * kMaxRate;
 
-				double deltaRate = targetRate - actualRate;
+				if(targetRate > actualRate) {
+					jaguar.set(1);
+				}else {
+					jaguar.set(0);
+				}
 
-				double deltaPower = deltaRate / kMaxRate;
-
-				deltaPower *= 1;
-
-				//Logger.getInstance().log("Target rate "+targetRate+" actual rate "+actualRate+" delta rate "+deltaRate+" delta power "+deltaPower, LogLevel.kDebug);
-
-				jaguar.set(targetPower + deltaPower);
 			}else{
 				jaguar.set(0);
 			}

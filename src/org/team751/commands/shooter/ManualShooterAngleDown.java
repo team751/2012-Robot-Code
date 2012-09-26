@@ -24,9 +24,10 @@ public class ManualShooterAngleDown extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		double angle = shooterTread.getTargetAngle();
-		angle -= 0.1;
-		shooterTread.setTargetAngle(angle);
+//		double angle = shooterTread.getTargetAngle();
+//		angle -= 0.1;
+//		shooterTread.setTargetAngle(angle);
+		shooterTread.angleDown();
     }
 
     // Called repeatedly when this Command is scheduled to run
