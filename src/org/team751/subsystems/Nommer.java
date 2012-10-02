@@ -49,7 +49,7 @@ public class Nommer extends Subsystem {
      *
      */
     public Nommer(){
-        nommerConveyorVictor = new Victor(RobotMap.ballConveyorVictor);
+        nommerConveyorVictor = new Victor(RobotMap.lowerNommerVictor);
         nommerConveyorVictor.setSafetyEnabled(false);//Disable MotorSafety
     }
 

@@ -106,9 +106,9 @@ public class RobotMap {
      */
     public static final int driveRightEncoderB = 4;
 
-    /** PWM channel for the Victor used to test the Nommer */
-    public static final int ballConveyorVictor = 4;
+    /** PWM channel for the Victor used for the lower section of the nommer */
+    public static final int lowerNommerVictor = 4;
 
-	public static final int lightsChannel = 10;
+    public static final int lightsChannel = 10;
 
 }
