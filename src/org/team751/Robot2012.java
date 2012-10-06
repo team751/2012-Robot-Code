@@ -92,7 +92,7 @@ public class Robot2012 extends IterativeRobot {
 
 
 	private void log(){
-		Logger.getInstance().log("Distance: " + CommandBase.shooterWheels.getUltrasonicDistance() + " Angle: "+CommandBase.shooterTread.getTargetAngle() + " Power: "+CommandBase.shooterWheels.getOpenLoopSpeed(), LogLevel.kDebug);
+//		Logger.getInstance().log("Distance: " + CommandBase.shooterWheels.getUltrasonicDistance() + " Angle: "+CommandBase.shooterTread.getTargetAngle() + " Power: "+CommandBase.shooterWheels.getOpenLoopSpeed(), LogLevel.kDebug);
 		//Logger.getInstance().log("Actual distance: "+CommandBase.shooterWheels.getUltrasonicDistance()+" Actual angle: "+CommandBase.shooterTread.getActualVoltage()/*+" Actual rate: "+CommandBase.shooterWheels.getActualRate()+" Top limit switch "+CommandBase.bridgePush.topLimitSwitchPressed()+" bottom limit switch "+CommandBase.bridgePush.bottomLimitSwitchPressed()*/, LogLevel.kDebug);
 		//Logger.getInstance().log("Instantaneous: " + CommandBase.shooterWheels.getInstantaneousSpeed() + " Rate: "+CommandBase.shooterWheels.getActualRate() + " Target: "+CommandBase.shooterWheels.getRate(), LogLevel.kDebug);
 	}

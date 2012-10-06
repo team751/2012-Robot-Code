@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Ant-Version: Apache Ant 1.8.2
-Created-By: 1.6.0_29-b11-402-10M3527 (Apple Inc.)
+Created-By: 1.6.0_23-b04 (Sun Microsystems Inc.)
 MIDlet-Name: 2012 Robot Code
 MIDlet-Version: 1.0.0
 MIDlet-Vendor: FRC Team 751

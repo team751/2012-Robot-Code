@@ -6,15 +6,12 @@ package org.team751.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.team751.RobotMap;
-import org.team751.sensors.AveragingEncoder;
 import org.team751.sensors.Ultrasonic;
-import org.team751.util.MovingAverage;
 import org.team751.util.logging.LogLevel;
 import org.team751.util.logging.Logger;
 
@@ -42,11 +39,11 @@ public class ShooterWheels extends Subsystem {
     /**
      * The encoder
      */
-    protected AveragingEncoder encoder = new AveragingEncoder(RobotMap.shooterEncoderA, RobotMap.shooterEncoderB);
+    protected Encoder encoder = new Encoder(RobotMap.shooterEncoderA, RobotMap.shooterEncoderB);
 
 
 	protected Timer speedTimer;
-	protected static final int speedDelay = 100;//Number of miliseconds between speed calculations
+	protected static final int speedDelay = 10;//Number of miliseconds between speed calculations
 	protected ShooterWheelPIDTask task = new ShooterWheelPIDTask();
 
 	/** The maximum rate at full power in degrees per second */
@@ -127,14 +124,19 @@ public class ShooterWheels extends Subsystem {
 		public boolean enabled = false;
 
 		public void run() {
-			if(enabled){
-				double actualRate = encoder.getRate();
-				double targetRate = targetPower * kMaxRate;
+                    double actualRate = encoder.getRate();
+                    double targetRate = targetPower * kMaxRate;
+                                
+                    Logger.getInstance().log("Actual rate "+actualRate+" target rate "+targetRate, LogLevel.kDebug);
 
+			if(enabled){
+				
 				if(targetRate > actualRate) {
 					jaguar.set(1);
+                                        Logger.getInstance().log("Motor on", LogLevel.kDebug);
 				}else {
 					jaguar.set(0);
+                                        Logger.getInstance().log("Motor off", LogLevel.kDebug);
 				}
 
 			}else{
