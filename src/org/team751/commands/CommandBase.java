@@ -31,9 +31,13 @@ public abstract class CommandBase extends Command {
      */
     public static ShooterTread shooterTread = new ShooterTread();
     /**
-     * The nommer subsystem (excluding the counter-roller)
+     * The intake roller and lower nommer stage
      */
-    public static Nommer nommer = new Nommer();
+    public static Nommer2Bottom nommerBottom = new Nommer2Bottom();
+    /**
+     * The top nommer stage
+     */
+    public static Nommer2Top nommerTop = new Nommer2Top();
     /**
      * The bridge push down mechanism
      */

@@ -6,12 +6,7 @@ package org.team751.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
-import org.team751.commands.counterroller.AutonomousFire;
-import org.team751.commands.counterroller.Fire;
-import org.team751.commands.counterroller.ReallyLongFire;
-import org.team751.commands.nommer.AutoNom;
-import org.team751.commands.nommer.DisableIntake;
-import org.team751.commands.shooter.AutomaticShooterSet;
+import org.team751.commands.nommer2.AutonomousFire;
 import org.team751.commands.shooter.ManualShooterFullPower;
 import org.team751.commands.shooter.ShooterOff;
 import org.team751.commands.shooter.ShooterOn;
@@ -52,7 +47,7 @@ public class Autonomous extends CommandGroup {
         addSequential(new AutonomousFire());//Fire
 
 		addSequential(new WaitCommand(2));//Wait for things to calm down
-        addSequential(new ReallyLongFire());//Fire
+        addSequential(new AutonomousFire());//Fire
 
 		addSequential(new WaitCommand(0.5));//Wait for things to calm down
 		addSequential(new ShooterOff());//Turn the shooter off

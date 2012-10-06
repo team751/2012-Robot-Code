@@ -1,30 +1,28 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.team751.commands.nommer;
+package org.team751.commands.nommer2;
 
+import edu.wpi.first.wpilibj.Timer;
 import org.team751.commands.CommandBase;
 
 /**
- *
- * @author Programmer
+ * Feeds balls up into the shooter. Runs for 1 second
+ * @author Sam Crow
  */
-public class ManualNommerDown extends CommandBase {
+public class AutonomousFire extends CommandBase {
     
+    private Timer timer = new Timer();
     /**
-     * 
+     * Number of seconds to run before ending this command
      */
-    public ManualNommerDown() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(nommer);
+    private double kTimeout = 1;
+    
+    public AutonomousFire() {
+        requires(nommerTop);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        nommer.ballsDown();
-        nommer.rollerOut();
+        timer.start();
+        nommerTop.feedUp();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,13 +31,12 @@ public class ManualNommerDown extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return timer.get() >= kTimeout;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        nommer.ballsStop();
-        nommer.rollerOff();
+        nommerTop.stop();
     }
 
     // Called when another command which requires one or more of the same

@@ -4,13 +4,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.team751.commands.bridgepush.BridgePushMomentaryExtend;
 import org.team751.commands.bridgepush.BridgePushMomentaryRetract;
-import org.team751.commands.counterroller.Fire;
 import org.team751.commands.drivetrain.DisableClosedLoopDrive;
 import org.team751.commands.drivetrain.EnableClosedLoopDrive;
-import org.team751.commands.nommer.AutoNom;
-import org.team751.commands.nommer.DisableIntake;
-import org.team751.commands.nommer.Eject;
-import org.team751.commands.nommer.SlowIntake;
+import org.team751.commands.nommer2.Feed;
+import org.team751.commands.nommer2.NommerEject;
+import org.team751.commands.nommer2.NommerIntake;
 import org.team751.commands.shooter.*;
 
 /**
@@ -72,8 +70,6 @@ public class OI {
     private JoystickButton nommerOff = new JoystickButton(operatorJoystick, 7);
 	//Shooter button: back button on top (Hold down to turn shooter on, release to turn it off)
 	private JoystickButton shooterOn = new JoystickButton(operatorJoystick, 2);
-	//shooter button: nommer slow intake (hold down)
-	private JoystickButton nommerSlowIntake = new JoystickButton(operatorJoystick, 8);
 
 	//Shooter angle controls
 	//Shooter angle up: Base right side back button
@@ -84,8 +80,6 @@ public class OI {
 	private JoystickButton bridgeDown = new JoystickButton(driveJoystick, 6);
 	private JoystickButton bridgeUp = new JoystickButton(driveJoystick, 7);
 
-	private JoystickButton ejectNommer = new JoystickButton(operatorJoystick, 9);
-
     /**
      * Construct the operator interface and link buttons to commands
      */
@@ -93,26 +87,22 @@ public class OI {
         powerUp.whenPressed(new ManualShooterPowerUp());
         powerDown.whenPressed(new ManualShooterPowerDown());
         autoPower.whenPressed(new AutomaticShooterSet());
-        shoot.whenPressed(new Fire());
+        shoot.whenPressed(new Feed());
 
         closedLoopEnable.whenPressed(new EnableClosedLoopDrive());
         closedLoopDisable.whenPressed(new DisableClosedLoopDrive());
 
-        nommerOn.whenPressed(new AutoNom());
-        nommerOff.whenPressed(new DisableIntake());
+        nommerOn.whenPressed(new NommerIntake());//Left stick button 6
+        nommerOff.whenPressed(new NommerEject());//Left stick button 7
 
 		shooterOn.whenPressed(new ShooterOn());
 		shooterOn.whenReleased(new ShooterOff());
-
-		nommerSlowIntake.whileHeld(new SlowIntake());
 
 		shooterAngleUp.whileHeld(new ManualShooterAngleUp());
 		shooterAngleDown.whileHeld(new ManualShooterAngleDown());
 
 		bridgeDown.whileHeld(new BridgePushMomentaryExtend());
 		bridgeUp.whileHeld(new BridgePushMomentaryRetract());
-
-		ejectNommer.whileHeld(new Eject());
 
     }
 
