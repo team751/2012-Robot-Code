@@ -42,13 +42,6 @@ public abstract class CommandBase extends Command {
      * The bridge push down mechanism
      */
     public static BridgePush bridgePush = new BridgePush();
-    /**
-     * The counter-roller
-     */
-    public static CounterRoller counterRoller = new CounterRoller();
-
-
-	public static CameraLights lights = new CameraLights();
 
     /**
      *

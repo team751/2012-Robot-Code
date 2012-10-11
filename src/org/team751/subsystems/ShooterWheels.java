@@ -127,16 +127,16 @@ public class ShooterWheels extends Subsystem {
                     double actualRate = encoder.getRate();
                     double targetRate = targetPower * kMaxRate;
                                 
-                    Logger.getInstance().log("Actual rate "+actualRate+" target rate "+targetRate, LogLevel.kDebug);
+//                    Logger.getInstance().log("Actual rate "+actualRate+" target rate "+targetRate, LogLevel.kDebug);
 
 			if(enabled){
 				
 				if(targetRate > actualRate) {
 					jaguar.set(1);
-                                        Logger.getInstance().log("Motor on", LogLevel.kDebug);
+//                                        Logger.getInstance().log("Motor on", LogLevel.kDebug);
 				}else {
 					jaguar.set(0);
-                                        Logger.getInstance().log("Motor off", LogLevel.kDebug);
+//                                        Logger.getInstance().log("Motor off", LogLevel.kDebug);
 				}
 
 			}else{
