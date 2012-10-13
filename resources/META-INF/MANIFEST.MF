@@ -1,0 +1,6 @@
+MIDlet-Name: 2012 Robot Code
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: FRC Team 751
+MIDlet-1: Robot2012, , org.team751.Robot2012
+MicroEdition-Profile: IMP-1.0
+MicroEdition-Configuration: CLDC-1.1
