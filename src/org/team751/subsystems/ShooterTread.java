@@ -34,7 +34,7 @@ public class ShooterTread extends Subsystem {
 	public ShooterTread(){
 		task = new ShooterTreadPIDTask(this);
 		task.targetVoltage = kLowerAngleLimit;
-		pid.schedule(task, 0, 100);//Schedule task repeating every 100 miliseconds
+		//pid.schedule(task, 0, 100);//Schedule task repeating every 100 miliseconds
 
 		potentiometer.setOversampleBits(2);
 
@@ -51,6 +51,8 @@ public class ShooterTread extends Subsystem {
 		}else{
 			relay.set(Value.kOff);
 		}
+                
+                Logger.getInstance().log("Potentiometer: "+getActualVoltage(), LogLevel.kDebug);
 	}
 
 	public void angleDown(){
@@ -59,6 +61,9 @@ public class ShooterTread extends Subsystem {
 		}else{
 			relay.set(Value.kOff);
 		}
+                
+                
+                Logger.getInstance().log("Potentiometer: "+getActualVoltage(), LogLevel.kDebug);
 	}
 
 	public void stop(){
@@ -112,6 +117,7 @@ public class ShooterTread extends Subsystem {
 		}
 
 		public void run() {
+                    
 			if(enabled){
 				if(Math.abs(targetVoltage - tread.getActualVoltage()) < kTolerance){//on target
 					tread.stop();//Stop

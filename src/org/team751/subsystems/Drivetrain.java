@@ -18,6 +18,7 @@ public class Drivetrain extends Subsystem {
     EncoderDrive drive = new EncoderDrive(RobotMap.drivetrainLeft, RobotMap.drivetrainRight, RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB);
     //RobotDrive drive = new RobotDrive(RobotMap.drivetrainLeft, RobotMap.drivetrainRight);
     
+    private boolean slowMode = false;
     
     /**
      * 
@@ -36,6 +37,12 @@ public class Drivetrain extends Subsystem {
      * @param rotateValue The value from -1 to 1 for turning 
      */
     public void arcadeDrive(double moveValue, double rotateValue){
+        
+        if(slowMode) {
+            moveValue *= 0.8;
+            rotateValue *= 0.8;
+        }
+        
         drive.arcadeDrive(moveValue, rotateValue, true);
     }
     
@@ -47,6 +54,11 @@ public class Drivetrain extends Subsystem {
     public void setEnabled(boolean enabled){
         drive.setSafetyEnabled(enabled);
     }
+    
+    public void setSlowModeEnabled(boolean enabled) {
+        slowMode = enabled;
+    }
+    
     
     /**
      * Set if the drivetrain should operate in closed-loop mode with input from encoders

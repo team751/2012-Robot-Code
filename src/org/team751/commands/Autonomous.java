@@ -38,18 +38,18 @@ public class Autonomous extends CommandGroup {
         // arm.
 
 
-		addSequential(new WaitCommand(7));//Wait for other robots to do things
+        addSequential(new WaitCommand(7));//Wait for other robots to do things
 
-		//addSequential(new AutomaticShooterSet());//Turn on the shooter
-		addSequential(new ManualShooterFullPower());
-		addSequential(new ShooterOn());
+        //addSequential(new AutomaticShooterSet());//Turn on the shooter
+        addSequential(new ManualShooterFullPower());
+        addSequential(new ShooterOn());
         addSequential(new WaitCommand(3));//Wait for the shooter to power up
         addSequential(new AutonomousFire());//Fire
 
-		addSequential(new WaitCommand(2));//Wait for things to calm down
+        addSequential(new WaitCommand(2));//Wait for things to calm down
         addSequential(new AutonomousFire());//Fire
 
-		addSequential(new WaitCommand(0.5));//Wait for things to calm down
-		addSequential(new ShooterOff());//Turn the shooter off
+        addSequential(new WaitCommand(0.5));//Wait for things to calm down
+        addSequential(new ShooterOff());//Turn the shooter off
     }
 }
