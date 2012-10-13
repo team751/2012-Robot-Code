@@ -70,6 +70,8 @@ public class OI {
     private JoystickButton nommerOff = new JoystickButton(operatorJoystick, 7);
 	//Shooter button: back button on top (Hold down to turn shooter on, release to turn it off)
 	private JoystickButton shooterOn = new JoystickButton(operatorJoystick, 2);
+        
+        private JoystickButton leftTrigger = new JoystickButton(operatorJoystick, 1);
 
 	//Shooter angle controls
 	//Shooter angle up: Base right side back button
@@ -87,13 +89,14 @@ public class OI {
         powerUp.whenPressed(new ManualShooterPowerUp());
         powerDown.whenPressed(new ManualShooterPowerDown());
         autoPower.whenPressed(new AutomaticShooterSet());
-        shoot.whenPressed(new Feed());
+        shoot.whileHeld(new Feed());//Right stick trigger
 
         closedLoopEnable.whenPressed(new EnableClosedLoopDrive());
         closedLoopDisable.whenPressed(new DisableClosedLoopDrive());
 
-        nommerOn.whenPressed(new NommerIntake());//Left stick button 6
-        nommerOff.whenPressed(new NommerEject());//Left stick button 7
+        nommerOn.whileHeld(new NommerIntake());//Left stick button 6
+        nommerOff.whileHeld(new NommerEject());//Left stick button 7
+        leftTrigger.whileHeld(new Feed());
 
 		shooterOn.whenPressed(new ShooterOn());
 		shooterOn.whenReleased(new ShooterOff());

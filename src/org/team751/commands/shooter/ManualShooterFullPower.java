@@ -22,7 +22,7 @@ public class ManualShooterFullPower extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        double powerGoal = 0.76;
+        double powerGoal = 1.00;
         shooterWheels.setOpenLoopSpeed(powerGoal);
 		shooterWheels.enable();
 

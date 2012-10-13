@@ -13,7 +13,7 @@ public class AutonomousFire extends CommandBase {
     /**
      * Number of seconds to run before ending this command
      */
-    private double kTimeout = 1;
+    private double kTimeout = 0.5;
     
     public AutonomousFire() {
         requires(nommerTop);
